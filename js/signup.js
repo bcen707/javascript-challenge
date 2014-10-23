@@ -8,23 +8,21 @@
 
 "use strict";
 
-document.addEventListener("click", DOMContentLoaded);
 
-document.addEventListener("click", change);
+function loadStates() {
 
-
-function DOMContentLoaded {
-	for (i = 0; i < usStates.length; i++) { 			  // Loop through state array
-		var option = usStates[i].createElement("OPTION"); // Give each state a new option element
-		var setElement = document.getElementById("option").appendChild(usStates[i]);
+	var getStates = document.getElementById("state");
+	for (var i = 0; i < usStates.length; i++) { 			  // Loop through state array
+		var option = document.createElement("option"); 		  // Give each state a new option element
+		option.value = usStates[i];
+		var text = document.createTextNode(usStates[i]);
+		option.appendChild(text);
+		getStates.appendChild(option);
+	
 	}	
 }
 
-function change {
-
-}
-
-
+document.addEventListener("DOMContentLoaded", loadStates);
 
 
 
