@@ -11,18 +11,21 @@
 
 function loadStates() {
 
-	var getStates = document.getElementById("state");
-	for (var i = 0; i < usStates.length; i++) { 			  // Loop through state array
-		var option = document.createElement("option"); 		  // Give each state a new option element
-		option.value = usStates[i];
-		var text = document.createTextNode(usStates[i]);
+	var getStates = document.getElementsByName("state"); // Accesses the us-states array
+	for (var i = 0; i < getStates.length; i++) { 			  // Loop through state array
+		var option = document.createElement("option");
+		option.value = getStates[i].code;
+		var text = document.createTextNode(getStates[i].name);
 		option.appendChild(text);
 		getStates.appendChild(option);
-	
-	}	
+		document.write(i);
+	}
+		//var elem = document.getElementById(getStates[i].code) 
+
 }
 
 document.addEventListener("DOMContentLoaded", loadStates);
-
+	
+	document.write('code reached here');
 
 
