@@ -18,10 +18,11 @@ function loadStates() {
 		var text = document.createTextNode(getStates[i].name);
 		option.appendChild(text);
 		getStates.appendChild(option);
-		document.write(i);
 	}
 		//var elem = document.getElementById(getStates[i].code) 
 
+		var myForm = document.getElementById("signup");
+		// myForm.addEventListener('submit', onSubmit);
 }
 
 document.addEventListener("DOMContentLoaded", loadStates);
