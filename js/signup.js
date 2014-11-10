@@ -8,7 +8,7 @@ This script will load the state select list and validate the form before submiss
 
 "use strict";
 
-// Load the states for form
+// Load the states form
 function loadStates() {
 	var getStates = document.getElementsByName("state")[0]; // Accesses the us-states array
 	
@@ -29,7 +29,7 @@ function hideShowOccup() {
 		occup.style.display = "none";
 		occup.value = '';
 	} else { 
-		occup.style.display = "inline";
+		occup.style.display = "inline"; //text box allows user to specify occupation
 	}	
 }
 
@@ -84,7 +84,15 @@ function formValidation(form) {
 
 
 
-// function validateBirth()
+ function validateBirth(field, form) {
+ 	var dateToday = new Date();
+ 	var dob = new Date(document.getElementById(field).value);
+ 	var day = dateToday.getDate() - dob.getUTCDate();
+ 	var month = today.getMonth() - dob.getUTCMonth();
+ 	var year = dateToday.getFullYear() - dob.getUTCFullYear();
+
+
+ }
 
 // function onSubmit()
 
