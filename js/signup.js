@@ -42,6 +42,7 @@ function leavePage() {
 	}
 }
 
+
 function zipValidation(field, form) {
 	var zipRegExp = new RegExp('^\\d{5}$');
 	var zipCode = document.getElementsByName("zip")[0].value;
@@ -54,8 +55,9 @@ function zipValidation(field, form) {
 	}
 }
 
+
 function checkRequiredFields(field, form) {
-	if (form[field].value.trim().length == 0 {
+	if (form[field].value.trim().length == 0) {
 		form[field].className = 'invalid-field form-control';
 		return false;
 	} else {
@@ -63,6 +65,8 @@ function checkRequiredFields(field, form) {
 		return true;
 	}
 }
+
+/*
 
 function formValidation(form) {
 	var requiredFields = ['firstName', 'lastName', 'address1', 'city', 'state', 'zip', 'birthdate'];
@@ -85,7 +89,7 @@ function validateBirth(field, form) {
  	var dateToday = new Date();
  	var dob = new Date(document.getElementById(field).value);
  	var day = dateToday.getDate() - dob.getUTCDate();
- 	var month = today.getMonth() - dob.getUTCMonth();
+ 	var month = dateToday.getMonth() - dob.getUTCMonth();
  	var year = dateToday.getFullYear() - dob.getUTCFullYear();
 
  	if(month < 0 || month == 0 && day < 0)
@@ -114,9 +118,9 @@ function onSubmit(evt) {
 	} catch(err) {
 		alert("Exception: " + err);
 	}
-
 }
 
+*/
 
 document.addEventListener("DOMContentLoaded", function() {
 	loadStates();
