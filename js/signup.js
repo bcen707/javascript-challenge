@@ -42,7 +42,6 @@ function leavePage() {
 	}
 }
 
-
 function zipValidation(field, form) {
 	var zipRegExp = new RegExp('^\\d{5}$');
 	var zipCode = document.getElementsByName("zip")[0].value;
@@ -65,8 +64,6 @@ function checkRequiredFields(field, form) {
 	}
 }
 
-
-
 function formValidation(form) {
 	var requiredFields = ['firstName', 'lastName', 'address1', 'city', 'state', 'zip', 'birthdate'];
 	var isValid = true;
@@ -80,10 +77,8 @@ function formValidation(form) {
 	if (occupation.value == "other") {
 		isValid &= checkRequiredFields("occupationOther", form);
 	}
-
 	return isValid;
 }
-
 
 function validateBirth(field, form) {
  	var dateToday = new Date();
@@ -103,10 +98,7 @@ function validateBirth(field, form) {
  	 	document.getElementById("birthdateMessage").innerHTML("You must be at least 13 years old to sign up!");
  		return false;
  	}
-
  }
-
-
 
 function onSubmit(evt) {
 	try {
@@ -116,13 +108,10 @@ function onSubmit(evt) {
 		}
 		evt.returnValue = checkValidity;
 		return checkValidity;	
-
 	} catch(err) {
 		alert("Exception: " + err);
 	}
 }
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
 	loadStates();
