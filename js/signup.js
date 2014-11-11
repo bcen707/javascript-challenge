@@ -105,8 +105,12 @@ function validateBirth(field, form) {
 function onSubmit(evt) {
 	try {
 		var checkValidity = formValidation(this);
-		if (!checkValidity) && evt.preventDefault)
+		if (!checkValidity) && evt.preventDefault) {
 			evt.preventDefault();
+		}
+		evt.returnValue = checkValidity;
+		return checkValidity;	
+
 	} catch(err) {
 		alert("Exception: " + err);
 	}
@@ -114,16 +118,13 @@ function onSubmit(evt) {
 }
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
 	loadStates();
 	occupation.addEventListener('change', hideShowOccup);
 	cancelButton.addEventListener('click', leavePage);
 	
-	var myForm = document.getElementById("signup");
-	myForm.addEventListener('submit', onSubmit);
+	var ourForm = document.getElementById("signup");
+	ourForm.addEventListener('submit', onSubmit);
 });
 
 
