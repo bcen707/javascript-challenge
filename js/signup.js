@@ -42,7 +42,6 @@ function leavePage() {
 	}
 }
 
-
 function zipValidation(field, form) {
 	var zipRegExp = new RegExp('^\\d{5}$');
 	var zipCode = document.getElementsByName("zip")[0].value;
@@ -78,28 +77,41 @@ function formValidation(form) {
 	if (occupation.value == "other") {
 		isValid &= checkRequiredFields("occupationOther", form);
 	}
+
+	return isValid;
 }
 
-
-
-
-
- function validateBirth(field, form) {
+function validateBirth(field, form) {
  	var dateToday = new Date();
  	var dob = new Date(document.getElementById(field).value);
  	var day = dateToday.getDate() - dob.getUTCDate();
  	var month = today.getMonth() - dob.getUTCMonth();
  	var year = dateToday.getFullYear() - dob.getUTCFullYear();
 
+ 	if(month < 0 || month == 0 && day < 0)
+ 		year = year - 1;
+
+ 	if (year >= 13) {
+ 		form[field].className = 'form-control';
+ 		return true;
+ 	} else {
+ 	 	form[field].className = 'invalid-field form-control';	
+ 	 	document.getElementById("birthdateMessage").innerHTML("You must be at least 13 years old to sign up!");
+ 		return false;
+ 	}
 
  }
 
-// function onSubmit()
+function onSubmit(evt) {
+	try {
+		var checkValidity = formValidation(this);
+		if (!checkValidity) && evt.preventDefault)
+			evt.preventDefault();
+	} catch(err) {
+		alert("Exception: " + err);
+	}
 
-
-
-
-
+}
 
 
 
@@ -111,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	cancelButton.addEventListener('click', leavePage);
 	
 	var myForm = document.getElementById("signup");
-	// myForm.addEventListener('submit', onSubmit);
+	myForm.addEventListener('submit', onSubmit);
 });
 
 
