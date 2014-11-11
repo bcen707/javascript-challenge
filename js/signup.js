@@ -55,7 +55,6 @@ function zipValidation(field, form) {
 	}
 }
 
-
 function checkRequiredFields(field, form) {
 	if (form[field].value.trim().length == 0) {
 		form[field].className = 'invalid-field form-control';
@@ -66,7 +65,7 @@ function checkRequiredFields(field, form) {
 	}
 }
 
-/*
+
 
 function formValidation(form) {
 	var requiredFields = ['firstName', 'lastName', 'address1', 'city', 'state', 'zip', 'birthdate'];
@@ -84,6 +83,7 @@ function formValidation(form) {
 
 	return isValid;
 }
+
 
 function validateBirth(field, form) {
  	var dateToday = new Date();
@@ -106,10 +106,12 @@ function validateBirth(field, form) {
 
  }
 
+
+
 function onSubmit(evt) {
 	try {
 		var checkValidity = formValidation(this);
-		if (!checkValidity) && evt.preventDefault) {
+		if (!checkValidity && evt.preventDefault) {
 			evt.preventDefault();
 		}
 		evt.returnValue = checkValidity;
@@ -120,7 +122,7 @@ function onSubmit(evt) {
 	}
 }
 
-*/
+
 
 document.addEventListener("DOMContentLoaded", function() {
 	loadStates();
