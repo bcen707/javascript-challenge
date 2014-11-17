@@ -42,6 +42,7 @@ function leavePage() {
 	}
 }
 
+//Ensures user's zip code is 5 numbers
 function zipValidation(field, form) {
 	var zipRegExp = new RegExp('^\\d{5}$');
 	var zipCode = document.getElementsByName("zip")[0].value;
@@ -54,6 +55,8 @@ function zipValidation(field, form) {
 	}
 }
 
+//Checks the form to make sure there is valid input for the required fields
+// before submission
 function checkRequiredFields(field, form) {
 	if (form[field].value.trim().length == 0) {
 		form[field].className = 'invalid-field form-control';
@@ -64,6 +67,7 @@ function checkRequiredFields(field, form) {
 	}
 }
 
+//Validates form for the required fields as well as zip code and birth date.
 function formValidation(form) {
 	var requiredFields = ['firstName', 'lastName', 'address1', 'city', 'state', 'zip', 'birthdate'];
 	var isValid = true;
@@ -80,6 +84,7 @@ function formValidation(form) {
 	return isValid;
 }
 
+// Validates birth of user, must be 13 years and up to sumbit form
 function validateBirth(field, form) {
  	var dateToday = new Date();
  	var dob = new Date(document.getElementById(field).value);
@@ -100,6 +105,7 @@ function validateBirth(field, form) {
  	}
  }
 
+// Prohibits form submission if an exception is generated
 function onSubmit(evt) {
 	try {
 		var checkValidity = formValidation(this);
@@ -117,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	loadStates();
 	occupation.addEventListener('change', hideShowOccup);
 	cancelButton.addEventListener('click', leavePage);
-	
 	var ourForm = document.getElementById("signup");
 	ourForm.addEventListener('submit', onSubmit);
 });
